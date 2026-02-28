@@ -20,7 +20,7 @@ useEffect(()=>{
   return (
     <div>
       Liste des catégories
-      <table className="table table-striped">
+      <table className="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Nom catégorie</th>
@@ -35,8 +35,8 @@ useEffect(()=>{
                 <tr key={index}>
                     <td>{cat.nomcategorie}</td>
                     <td><img src={cat.imagecategorie} alt={cat.nomcategorie} width="100"/></td>
-                    <td><button className="btn btn-warning">Update</button></td>
-                    <td><button className="btn btn-danger">Delete</button></td>
+                    <td><button className="btn btn-warning btn-sm">Update</button></td>
+                    <td><button className="btn btn-danger btn-sm">Delete</button></td>
                 </tr>
            ) }
         </tbody>
