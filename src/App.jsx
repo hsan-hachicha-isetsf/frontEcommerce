@@ -9,6 +9,7 @@ import Listarticles from "./components/articles/Listarticles"
 import Insertarticle from "./components/articles/Insertarticle"
 import Updatearticle from "./components/articles/Updatearticle"
 import Menu from "./components/Menu"
+import Viewarticle from "./components/articles/Viewarticle"
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/articles" element={<Listarticles />} />
         <Route path="/insertarticle" element={<Insertarticle />} />
         <Route path="/updateart/:id" element={<Updatearticle />} />
+        <Route path="/viewarticle/:id" element={<Viewarticle />} />
       </Routes>
     </Router>
     </>

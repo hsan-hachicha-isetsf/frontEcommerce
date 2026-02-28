@@ -22,7 +22,7 @@ const Listscategories = () => {
           <tr>
             <th>Nom sous-catégorie</th>
             <th>Image </th>
-            <th>Catégorie</th>
+            
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -33,7 +33,7 @@ const Listscategories = () => {
               <tr key={index}>
                 <td>{sc.nomscategorie}</td>
                 <td><img src={sc.imagescategorie} alt={sc.nomscategorie} width="100"/></td>
-                <td>{sc.categorieID.nomcategorie}</td>
+               
                 <td><button className="btn btn-warning btn-sm">Update</button></td>
                 <td><button className="btn btn-danger btn-sm">Delete</button></td>
               </tr>  

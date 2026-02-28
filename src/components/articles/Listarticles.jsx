@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Listarticles = () => {
   const[articles,setArticles]=useState([])
@@ -16,6 +17,14 @@ const Listarticles = () => {
   useEffect(()=>{
     getArticles()
   },[])
+  const handleDelete=async(id)=>{
+    try {
+        await axios.delete(`http://localhost:3000/api/articles/${id}`)      
+        getArticles() // Refresh the list after deletion
+  } catch (error) {
+    console.log(error)
+  }
+  }
   return (
     <div>
       Liste des articles
@@ -29,6 +38,7 @@ const Listarticles = () => {
             <th>Qté Stock</th>
             <th>Image</th>
             <th>Sous catégorie</th>
+            <th>View</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -44,8 +54,14 @@ const Listarticles = () => {
               <td>{art.qtestock}</td>
               <td><img src={art.imageart} alt={art.designation} width="100"/></td>
               <td>{art.scategorieID.nomscategorie}</td>
+              <td><Link 
+                  className="btn btn-primary btn-sm" 
+                  to={`/viewarticle/${art._id}`} 
+                > 
+                  View 
+                </Link></td>
               <td><button className="btn btn-warning btn-sm">Update</button></td>
-              <td><button className="btn btn-danger btn-sm">Delete</button></td>
+              <td><button className="btn btn-danger btn-sm" onClick={()=>handleDelete(art._id)} >Delete</button></td>
             </tr>
          )}
         </tbody>
