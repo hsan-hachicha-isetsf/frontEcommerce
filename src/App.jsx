@@ -26,9 +26,9 @@ function App() {
         <Route path="/updatescat/:id" element={<Updatescategorie />} />
 
         <Route path="/articles" element={<Listarticles />} />
-        <Route path="/insertarticle" element={<Insertarticle />} />
-        <Route path="/updateart/:id" element={<Updatearticle />} />
-        <Route path="/viewarticle/:id" element={<Viewarticle />} />
+        <Route path="/articles/add" element={<Insertarticle />} />
+        <Route path="/articles/edit/:id" element={<Updatearticle />} />
+        <Route path="/articles/view/:id" element={<Viewarticle />} />
       </Routes>
     </Router>
     </>

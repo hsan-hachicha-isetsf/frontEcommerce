@@ -26,47 +26,71 @@ const Listarticles = () => {
   }
   }
   return (
-    <div>
-      Liste des articles
-      <table className="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <th>Reférence</th>
-            <th>Désignation</th>
-            <th>Marque</th>
-            <th>Prix</th>
-            <th>Qté Stock</th>
-            <th>Image</th>
-            <th>Sous catégorie</th>
-            <th>View</th>
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-         {
-            articles.map((art,index)=>  
-            <tr key={index}>
-              <td>{art.reference}</td>
-              <td>{art.designation}</td>
-              <td>{art.marque}</td>
-              <td>{art.prix}</td>
-              <td>{art.qtestock}</td>
-              <td><img src={art.imageart} alt={art.designation} width="100"/></td>
-              <td>{art.scategorieID.nomscategorie}</td>
-              <td><Link 
+    <div className="container"> 
+<div > 
+<nav className="navbar navbar-expand-lg navbar-dark bg-success"> 
+<div className="container-fluid"> 
+<Link className="btn btn-outline-light" to="/articles/add"> 
+Ajouter article 
+</Link> 
+</div> 
+</nav> 
+</div> 
+<div className="py-4"> 
+<table className="table border shadow"> 
+<thead> 
+<tr> 
+<th scope="col">Image</th> 
+<th scope="col">Référence</th> 
+<th scope="col">Désignation</th> 
+<th scope="col">Quantité Stock</th> 
+<th scope="col">Prix</th> 
+<th scope="col">View</th> 
+<th scope="col">Modifier</th> 
+<th>Supprimer</th> 
+</tr> 
+</thead> 
+<tbody> 
+{articles.map((art, index) => ( 
+<tr key={art._id}> 
+<td><img src={art.imageart} width={80} height={80}/></td> 
+ 
+ 
+              <td>{art.reference}</td> 
+              <td>{art.designation}</td> 
+              <td>{art.qtestock}</td> 
+              <td>{art.prix}</td> 
+ 
+              <td> 
+                <Link 
                   className="btn btn-primary btn-sm" 
-                  to={`/viewarticle/${art._id}`} 
+                  to={`/articles/view/${art._id}`} 
                 > 
-                  View 
-                </Link></td>
-              <td><button className="btn btn-warning btn-sm">Update</button></td>
-              <td><button className="btn btn-danger btn-sm" onClick={()=>handleDelete(art._id)} >Delete</button></td>
-            </tr>
-         )}
-        </tbody>
-      </table>
-    </div>
+                  Consulter 
+                </Link> 
+                </td> 
+                <td> 
+                <Link 
+                  className="btn btn-outline-primary btn-sm" 
+                  to={`/articles/edit/${art._id}`} 
+                > 
+                  Modifier 
+                </Link> 
+                </td> 
+                <td> 
+                <button 
+                  className="btn btn-danger btn-sm" 
+                  onClick={() => handleDelete(art._id)} 
+                > 
+                  Supprimer 
+                </button> 
+              </td> 
+            </tr> 
+          ))} 
+        </tbody> 
+      </table> </div> 
+  </div> 
+         
   )
 }
 
